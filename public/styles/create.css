@@ -1,0 +1,35 @@
+.creation-form{
+    width: 40%;
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 4% 5%;
+    border: 0.7px solid var(--card-border-color);
+    border-radius: 5px;
+}
+
+input, textarea{
+    padding: 8px;
+    border: 0.7px solid var(--card-border-color);
+    border-radius: 3px;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+}
+
+/* input{
+} */
+
+textarea{
+    font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+    resize: none;
+}
+
+input:focus, textarea:focus{
+    outline: 0.7px solid #000000ba;
+    border: none;
+}
+
+.create-btn{
+    font-size: 15px;
+}

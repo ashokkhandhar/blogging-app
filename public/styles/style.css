@@ -1,0 +1,129 @@
+:root{
+    --btn-background-color: #475569;
+    --hover-btn-background-color: #334155;
+    --background-color: #fff;
+    --text-color: #3a3a3a;
+    --navigation-box-shadow-color: #0000001a;
+    --card-border-color: #abababba;
+    --card-font-color: #475569;
+}
+
+/* [data-theme="dark"]{
+
+} */
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+    color: var(-text-color);
+}
+
+a{
+    color: var(--text-color);
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    z-index: 100;
+}
+.navigation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 25px;
+    background-color: var(--background-color);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.navigation.shadow {
+    box-shadow: 0px 5px 10px var(--navigation-box-shadow-color);
+}
+
+.logo{
+    height: 50px;
+}
+
+.btn-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn{
+    padding: 10px;
+    color: #edededfb;
+    background-color: var(--btn-background-color);
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: padding 0.01s ease;
+}
+
+.btn:hover{
+    background-color: var(--hover-btn-background-color);
+}
+
+.btn:active {
+    background-color: var(--btn-background-color);
+}
+
+.container{
+    min-height: 100vh;
+    padding: 100px 0 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.card{
+    border: 0.7px solid var(--card-border-color);
+    border-radius: 5px;
+    width: 70%;
+    padding: 20px;
+    position: relative;
+    color: var(--card-font-color);
+}
+
+.card:hover{
+    border: none;
+    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+}
+
+.view-btn{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.heading{
+    font-size: 28px;
+    color: #00838f;
+}
+
+.date{
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+
+.detail{
+    margin-top: 10px;
+}
+
+.copy-right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 40px;
+    border-top: 0.5px solid #abababba;
+}

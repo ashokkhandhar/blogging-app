@@ -1,0 +1,10 @@
+<%- include("partials/header.ejs") %>
+
+<form action="/editSubmit" method="POST" class="creation-form">
+    <input type="text" name="author" value="<%= blog.author %>">
+    <input type="text" name="title" value="<%= blog.title %>">
+    <textarea class="detail" name="detail" rows="10" cols="50"><%= blog.detail %></textarea>    
+    <button type="submit" class="btn create-btn" name="index" value="<%= index %>">Submit</button>
+</form>
+
+<%- include("partials/footer.ejs") %>
