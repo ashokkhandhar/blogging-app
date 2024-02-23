@@ -1,27 +1,26 @@
 <%- include("partials/header.ejs") %>
 
-<% if(locals.blogs && blogs.length !== 0){ %>
-    <% for(let i = 0; i < blogs.length; i++) {%>
-        <div class="card">
-            <form action="/view" method="post">
-                <button class="view-btn" type="submit" name="index" value="<%= i %>">
-                    <h1 class="heading"><%= blogs[i].title %></h1>
-                </button>
-            </form>
-            <code class="date"><%= blogs[i].date %></code>
-            <code class="auther"><i><%= blogs[i].author %></i></code>
-            <div class="detail">
-                <% let detail = blogs[i].detail; %>
-                <% if(detail.length > 100){ %>
-                    <%= detail.slice(0, 500); %> ...
-                <% } else{ %>
-                    <%= detail %>
-                <% } %> 
+    <% if(locals.posts && posts.length !== 0){ %>
+        <% posts.forEach((post)=>{ %>
+            <div class="card">
+                <a class="title-a" href="/posts/<%= post.postTitle %>">
+                    <h1 class="title"><%= post.postTitle %></h1>
+                </a>
+                <code class="date"><%= post.date %></code>
+                <code class="auther"><i><%= post.author %></i></code>
+                <div class="detail">
+                    <% let detail = post.postDetail; %>
+                    <% if(detail.length > 100){ %>
+                        <%= detail.slice(0, 500); %> ...
+                        <a href="/posts/<%= post.postTitle %>" class="read-more">Read More</a>
+                    <% } else{ %>
+                        <%= detail %>
+                    <% } %> 
+                </div>
             </div>
-        </div>
+        <% }); %>
+    <% } else { %>
+            <h1 class="heading">Create new blog post 😉</h1>
     <% } %>
-<% } else { %>
-        <h1 class="heading">Create new Blogs to view here 😉</h1>
-<% } %>
 
 <%- include("partials/footer.ejs") %>

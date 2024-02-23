@@ -1,0 +1,33 @@
+.email-mobile{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.email-mobile a{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.social-media {
+    margin-top: 35px;
+    display: flex;
+    gap: 30px;
+}
+
+.social-media svg{
+    width: 20px;
+    height: 20px;
+    fill: var(--primary-color);
+}
+
+.social-media svg:hover{
+    fill: var(--hover-btn-background-color);
+}
+
+.social-media a:hover{
+    text-decoration: none;
+}

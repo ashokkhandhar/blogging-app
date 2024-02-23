@@ -1,24 +1,23 @@
 .creation-form{
-    width: 40%;
-    min-height: 55vh;
+    width: 45%;
+    min-height: 78vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 4% 5%;
-    border: 0.7px solid var(--card-border-color);
-    border-radius: 5px;
+    align-items: center;
+    padding: 3% 4%;
+    border-radius: 15px;
+    background-color: var(--header-footer-background-color);
 }
 
 input, textarea{
+    width: 100%;
     padding: 8px;
     border: 0.7px solid var(--card-border-color);
     border-radius: 3px;
     font-size: 15px;
     letter-spacing: 0.5px;
 }
-
-/* input{
-} */
 
 textarea{
     font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
@@ -31,5 +30,6 @@ input:focus, textarea:focus{
 }
 
 .create-btn{
+    width: 100%;
     font-size: 15px;
 }

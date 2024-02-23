@@ -1,0 +1,15 @@
+.about-detail{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.about-pera{
+    flex-basis: 50%;
+}
+
+.about-img{
+    width: 40%;
+    border-radius: 5px;
+}
