@@ -3,7 +3,7 @@
     <% if(locals.posts && posts.length !== 0){ %>
         <% posts.forEach((post)=>{ %>
             <div class="card">
-                <a class="title-a" href="/posts/<%= post.postTitle %>">
+                <a class="title-a" href="/posts/<%= post._id %>">
                     <h1 class="title"><%= post.postTitle %></h1>
                 </a>
                 <code class="date"><%= post.date %></code>
@@ -12,7 +12,7 @@
                     <% let detail = post.postDetail; %>
                     <% if(detail.length > 100){ %>
                         <%= detail.slice(0, 500); %> ...
-                        <a href="/posts/<%= post.postTitle %>" class="read-more">Read More</a>
+                        <a href="/posts/<%= post._id %>" class="read-more">Read More</a>
                     <% } else{ %>
                         <%= detail %>
                     <% } %> 

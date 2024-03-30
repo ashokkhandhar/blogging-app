@@ -6,10 +6,10 @@
             <div class="detail"><%= post.postDetail %></div>
             <div class="edit-del-btn-container">
                 <form action="/edit" method="post">
-                    <button class="edit-btn" name="index" value="<%= index %>">Edit</button>
+                    <button class="edit-btn" name="id" value="<%= post._id %>">Edit</button>
                 </form>
                 <form action="/delete" method="post">
-                    <button class="del-btn" name="index" value="<%= index %>">Delete</button>
+                    <button class="del-btn" name="id" value="<%= post._id %>">Delete</button>
                 </form>
             </div>
         </div>

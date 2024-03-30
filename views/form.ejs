@@ -1,13 +1,14 @@
 <%- include("partials/header.ejs") %>
 
     <form action="/submit" method="POST" class="creation-form">
-        <h1><%= heading %> Post</h1>
-        <% if(heading === "Edit"){ %>
+        <% if(locals.post){ %>
+            <h1>Edit Post</h1>
             <input type="text" name="author" value="<%= post.author %>">
             <input type="text" name="postTitle" value="<%= post.postTitle %>">
             <textarea class="detail" name="postDetail" rows="10" cols="50"><%= post.postDetail %></textarea>    
-            <button type="submit" class="btn create-btn" name="index" value="<%= index %>">Publish</button>
+            <button type="submit" class="btn create-btn" name="id" value="<%= post._id %>">Publish</button>
         <% }else{ %>
+            <h1>Create Post</h1>
             <input type="text" name="author" placeholder="Author" required>
             <input type="text" name="postTitle" placeholder="Title" required>
             <textarea name="postDetail" rows="10" placeholder="Detail" required></textarea>    
