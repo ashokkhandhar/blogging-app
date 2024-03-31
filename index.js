@@ -12,7 +12,9 @@ app.use(express.static("public"));
 app.use(express.static("public/styles"));
 
 // db connection
-mongoose.connect(process.env.URL);
+mongoose.connect(process.env.URI)
+.then(() => console.info('DB Connected'))
+.catch((error) => console.info(`DB connection error: ${error.message}`));
 
 const postSchema = new mongoose.Schema({
     author: String,
@@ -49,13 +51,13 @@ app.post("/submit", async (req, res)=>{
     const reqId = req.body.id;
     if(reqId){
         try {
-            const responce = await Post.updateOne({_id: reqId}, {
+            const response = await Post.updateOne({_id: reqId}, {
                 author: req.body.author,
                 postTitle: req.body.postTitle,
                 postDetail: req.body.postDetail,
                 date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
             });
-            console.log("Post updated successfully..!\n", responce);
+            console.log("Post updated successfully..!\n", response);
         } catch (error) {
             res.send(error.message);
         }
@@ -67,8 +69,8 @@ app.post("/submit", async (req, res)=>{
                 postDetail: req.body.postDetail,
                 date:  new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
             });
-            const responce = await post.save();
-            console.log("New post created successfully..!\n", responce);
+            const response = await post.save();
+            console.log("New post created successfully..!\n", response);
         } catch (error) {
             res.send(error.message);
         }
@@ -99,8 +101,8 @@ app.post("/edit", async (req, res)=>{
 app.post("/delete", async (req, res)=>{
     const reqId = req.body.id;
     try {
-        const responce = await Post.deleteOne({_id: reqId});
-        console.log(responce);
+        const response = await Post.deleteOne({_id: reqId});
+        console.log(response);
         res.redirect("/");
     } catch (error) {
         res.send(error.message);
