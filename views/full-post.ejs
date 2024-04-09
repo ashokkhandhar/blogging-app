@@ -1,0 +1,35 @@
+<%- include("partials/header.ejs") %>
+
+<% if(locals.user && user.username === post.author.username) { %>
+        <div class="card">
+            <h1 class="full-post-title"><%= post.postTitle %></h1>
+            <code class="date"><%= post.date %></code>
+            <div class="detail"><%= post.postDetail %></div>
+            <div class="tag">
+                <% if(post.isPrivate) { %>
+                    <code>Private</code>
+                <% } else { %>
+                    <code>Public</code>
+                <% } %>
+            </div>
+            <div class="edit-del-btn-container">
+                <form action="/edit" method="post">
+                    <button class="edit-btn" name="id" value="<%= post._id %>">Edit</button>
+                </form>
+                <form action="/delete" method="post">
+                    <button class="del-btn" name="id" value="<%= post._id %>">Delete</button>
+                </form>
+            </div>
+        </div>
+<% } else { %>
+    <div class="card">
+        <h1 class="full-post-title"><%= post.postTitle %></h1>
+        <code class="date"><%= post.date %></code>
+        <a class="author" href="/user/<%= post.author.username %>">
+            <code><i><%= post.author.username %></i></code>
+        </a>
+        <div class="detail"><%= post.postDetail %></div>
+    </div>
+<% } %>
+
+<%- include("partials/footer.ejs") %>

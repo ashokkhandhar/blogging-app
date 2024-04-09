@@ -1,0 +1,34 @@
+<%- include("partials/header.ejs") %>
+    
+    <% if(locals.user) { %>
+        <form action="/publish" method="POST" class="post-form">
+            <!-- <input type="hidden" name="author" value="<%#= user %>"> -->
+            <% if(locals.post){ %>
+                <h1>Edit Post</h1>
+                <input class="input" type="text" name="postTitle" value="<%= post.postTitle %>" placeholder="Title">
+                <textarea class="input" name="postDetail" rows="10" cols="50" placeholder="Detail"><%= post.postDetail %></textarea>    
+                <label class="isPrivate" for="isPrivate">
+                    <% if(post.isPrivate) { %>
+                        <input type="checkbox" name="isPrivate" id="isPrivate" checked>
+                    <% } else { %>
+                        <input type="checkbox" name="isPrivate" id="isPrivate">
+                    <% } %>
+                    Private to me
+                </label>
+                <button type="submit" class="btn submit-btn" name="id" value="<%= post._id %>">Publish</button>
+            <% }else{ %>
+                <h1>Create Post</h1>
+                <input class="input" type="text" name="postTitle" placeholder="Title" required>
+                <textarea class="input" name="postDetail" rows="10" placeholder="Detail" required></textarea>  
+                <label class="isPrivate" for="isPrivate">
+                    <input type="checkbox" name="isPrivate" id="isPrivate">
+                    Private to me
+                </label>
+                <button type="submit" class="btn submit-btn">Publish</button>
+            <% } %>
+        </form>
+    <% } else { %>
+        <h1 class="logout-content">Please login to create post.</h1>
+    <% } %>
+
+<%- include("partials/footer.ejs") %>

@@ -1,0 +1,24 @@
+<%- include("partials/header.ejs") %>
+
+<form action="/register" method="POST" class="post-form user-form">
+    <h1 class="form-heading">Register</h1>
+    <div class="input-container">
+        <input class="input" id="name" type="text" name="name" placeholder="Full Name">
+        <span id="name-error" class="error d-none">The name can't be empty.</span>
+    </div>
+    <div class="input-container">
+        <input class="input" id="username" type="text" name="username" placeholder="Username">
+        <span id="username-error" class="error d-none">The username must contain minimum three characters, only uppercase / lowercase letters, numbers and underscores.</span>
+    </div>
+    <div class="input-container">
+        <input class="input" id="password" type="password" name="password" placeholder="Password">
+        <span id="password-error" class="error d-none">The password must contain minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character.</span>
+    </div>
+    <button type="submit" class="btn submit-btn" id="register-submit">Sign Up</button>
+    <div class="redirection">
+        Have an Account?
+        <a href="/signin">Sign In</a>
+    </div>
+</form>
+
+<%- include("partials/footer.ejs") %>

@@ -1,3 +1,9 @@
+.full-post-title {
+    color: var(--font-color-1);
+    font-size: 22px;
+    font-weight: 600;
+}
+
 .edit-del-btn-container{
     display: flex;
     justify-content: flex-end;

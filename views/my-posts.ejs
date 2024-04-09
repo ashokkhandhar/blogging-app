@@ -1,0 +1,33 @@
+<%- include("partials/header.ejs") %>
+
+<% if(locals.user) { %>
+    <h1>My Posts</h1>
+    <% posts.forEach((post)=>{ %>
+        <div class="card">
+            <a class="title-container" href="/post/<%= post._id %>">
+                <h1 class="title"><%= post.postTitle %></h1>
+            </a>
+            <code class="date"><%= post.date %></code>
+            <div class="detail">
+                <% let detail = post.postDetail; %>
+                <% if(detail.length > 100){ %>
+                    <%= detail.slice(0, 500); %> ...
+                    <a href="/post/<%= post._id %>" class="read-more">Read More</a>
+                <% } else { %>
+                    <%= detail %>
+                <% } %> 
+            </div>
+            <div class="tag">
+                <% if(post.isPrivate) { %>
+                    <code>Private</code>
+                <% } else { %>
+                    <code>Public</code>
+                <% } %>
+            </div>
+        </div>
+    <% }); %>
+<% } else { %>
+    <h1 class="logout-content">Please login to view your post.</h1>
+<% } %>
+
+<%- include("partials/footer.ejs") %>

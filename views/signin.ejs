@@ -1,0 +1,18 @@
+<%- include("partials/header.ejs") %>
+
+<form action="/signin" method="POST" class="post-form user-form">
+    <h1 class="form-heading">Sign In</h1>
+    <div class="input-container">
+        <input class="input" type="text" name="username" placeholder="Username">
+    </div>
+    <div class="input-container">
+        <input class="input" type="password" name="password" placeholder="Password">   
+    </div>
+    <button type="submit" class="btn submit-btn">Sign In</button>
+    <div class="redirection">
+        Don't have Account?
+        <a href="/register">Reginster</a>
+    </div>
+</form>
+
+<%- include("partials/footer.ejs") %>

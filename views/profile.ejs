@@ -1,0 +1,59 @@
+<%- include("partials/header.ejs") %>
+
+    <div class="profile-card-container">
+        <div class="card profile-card-1">
+            <div class="profile-info">
+                <div class="profile-name">
+                    Name:
+                    <div class="profile-info-values">
+                        <%= userInfo.name %>
+                    </div>
+                </div>
+                <div class="profile-username">
+                    Username:
+                    <div class="profile-info-values">
+                        <%= userInfo.username %>
+                    </div>
+                </div>
+                <div class="profile-public-post-count">
+                    Number of public posts:
+                    <div class="profile-info-values">
+                        <%= publicPostCount %>
+                    </div>
+                </div>
+                <% if(locals.self) { %>
+                    <div class="profile-private-post-count">
+                        Number of private posts:
+                        <div class="profile-info-values">
+                            <%= privatePostCount %>
+                        </div>
+                    </div>
+                    <div class="profile-total-post-count">
+                        Total posts:
+                        <div class="profile-info-values">
+                            <%= postCount %>
+                        </div>
+                    </div>
+                <% } %>
+                <div class="edit-profile-btn-container">
+                    <% if(locals.self) { %>
+                        <a href="/update-profile">
+                            <button class="btn edit-profile-btn">Edit Profile</button>
+                        </a>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        <div class="card profile-card-2">
+            <h1 class="profile-card-2-title">Posts:</h1>
+            <% posts.forEach((post)=>{ %>
+                <div class="profile-posts-container">
+                    <a class="title-container" href="/post/<%= post._id %>">
+                        <h1 class="profile-post-title"><%= post.postTitle %></h1>
+                    </a>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+
+<%- include("partials/footer.ejs") %>

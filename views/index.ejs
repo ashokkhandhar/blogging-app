@@ -1,26 +1,25 @@
 <%- include("partials/header.ejs") %>
 
-    <% if(locals.posts && posts.length !== 0){ %>
-        <% posts.forEach((post)=>{ %>
-            <div class="card">
-                <a class="title-a" href="/posts/<%= post._id %>">
-                    <h1 class="title"><%= post.postTitle %></h1>
-                </a>
-                <code class="date"><%= post.date %></code>
-                <code class="auther"><i><%= post.author %></i></code>
-                <div class="detail">
-                    <% let detail = post.postDetail; %>
-                    <% if(detail.length > 100){ %>
-                        <%= detail.slice(0, 500); %> ...
-                        <a href="/posts/<%= post._id %>" class="read-more">Read More</a>
-                    <% } else{ %>
-                        <%= detail %>
-                    <% } %> 
-                </div>
-            </div>
-        <% }); %>
-    <% } else { %>
-            <h1 class="heading">Create new blog post 😉</h1>
-    <% } %>
+<h1>All Pubilc Posts</h1>
+<% posts.forEach((post)=>{ %>
+    <div class="card">
+        <a class="title-container" href="/post/<%= post._id %>">
+            <h1 class="title"><%= post.postTitle %></h1>
+        </a>
+        <code class="date"><%= post.date %></code>
+        <a class="author" href="/user/<%= post.author.username %>">
+            <code><i><%= post.author.username %></i></code>
+        </a>
+        <div class="detail">
+            <% let detail = post.postDetail; %>
+            <% if(detail.length > 100){ %>
+                <%= detail.slice(0, 500); %> ...
+                <a href="/post/<%= post._id %>" class="read-more">Read More</a>
+            <% } else { %>
+                <%= detail %>
+            <% } %> 
+        </div>
+    </div>
+<% }); %>
 
 <%- include("partials/footer.ejs") %>
