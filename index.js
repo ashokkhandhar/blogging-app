@@ -8,7 +8,6 @@ import { Strategy } from "passport-local";
 import 'dotenv/config';
 
 const app = express();
-const port = 3000;
 const saltRounds = 10;
 
 // Middlewares
@@ -74,7 +73,7 @@ passport.use(
                     }
                 });
             } else {
-                return cb("User not found"); 
+                return cb("User not found");
             }
         } catch (error) {
             return cb(error);
@@ -121,10 +120,10 @@ app.get('/user/:username', async (req, res) => {
     try {
         const existingUser = await User.findOne({ username: paramsUsername });
         if(existingUser) {
-            const posts = await Post.find({ author: existingUser });
-            const publicPosts = await Post.find({ author: existingUser, isPrivate: false });
-            const postCount = await Post.countDocuments({ author: existingUser });
-            const publicPostCount = await Post.countDocuments({ author: existingUser, isPrivate: false });
+            const posts = await Post.find({ author: existingUser }).sort({_id: -1});
+            const publicPosts = await Post.find({ author: existingUser, isPrivate: false }).sort({_id: -1});
+            const postCount = posts.length;
+            const publicPostCount = publicPosts.length;
             // if user is loged in
             if(req.user) {
                 // viewing own profile
@@ -241,7 +240,7 @@ app.post('/update-profile', async (req, res) => {
                             console.log("User updated successfully..!\n", response2);
                         }
                     });
-                    res.redirect("/profile-settings");
+                    res.redirect(`/user/${newUsername}`);
                 } catch (error) {
                     res.send(error.message);
                 }
@@ -322,11 +321,13 @@ app.post("/delete", async (req, res)=>{
     try {
         const response = await Post.deleteOne({_id: reqId});
         console.log(response);
-        res.redirect("/");
+        res.redirect("/my-posts");
     } catch (error) {
         res.send(error.message);
     }
 });
+
+const port = process.env.PORT || 3000;
 
 app.listen(port, ()=>{
     console.log(`Server Started at http://localhost:3000/`);
