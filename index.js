@@ -167,7 +167,12 @@ app.get('/delete-profile', async (req, res) => {
 
         const response2 = await Post.deleteMany({ author: req.user });
         console.log("Posts of user are deleted successfully..!\n", response2);
-        res.redirect("/");
+        req.logout(function (err) {
+            if (err) {
+                return next(err);
+            }
+            res.redirect("/");
+        });
     } catch (error) {
         res.send(error);
     }
