@@ -92,7 +92,7 @@ passport.deserializeUser((user, cb) => {
 // Routes
 app.get('/', async (req, res)=>{
     try {
-        const posts = await Post.find({ isPrivate: false });
+        const posts = await Post.find({ isPrivate: false }).sort({_id: -1});
         if (req.isAuthenticated()) {
             res.render("index.ejs", {posts: posts, user: req.user});
         } else {
@@ -145,7 +145,7 @@ app.get('/user/:username', async (req, res) => {
 
 app.get("/my-posts", async (req, res) => {
     try {
-        const posts = await Post.find({ author: req.user });
+        const posts = await Post.find({ author: req.user }).sort({_id: -1});
         res.render("my-posts.ejs", {posts: posts, user: req.user});
     } catch (error) {
         res.send(error.message);
