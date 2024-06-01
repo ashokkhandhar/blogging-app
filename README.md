@@ -1,4 +1,4 @@
-# blogging-app
+# blogging-app (old)
 
 It's a real life application to create blogs. application contains funcalities like create, edit and delete blogs.
 
