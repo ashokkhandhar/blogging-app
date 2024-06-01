@@ -22,7 +22,7 @@ const Posts = () => {
 
   return (
     <div className="card-container">
-      {posts.map(post => (
+      {posts.length && posts.map(post => (
         <PostCard key={post._id} post={post} />
       ))}
     </div>
