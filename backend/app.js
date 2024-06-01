@@ -17,7 +17,7 @@ mongoose.connect(process.env.MONGODB_URI)
 
 app.use(cors({
     // origin: 'http://localhost:3001',
-    origin: 'https://blogging-web-app.vercel.app',
+    origin: 'https://blogging-web-app-liard.vercel.app',
     credentials: true
 }));
 
