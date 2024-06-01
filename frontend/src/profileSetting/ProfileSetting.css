@@ -1,0 +1,59 @@
+.setting-container{
+    min-height: 100vh;
+    padding: 100px 0 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.profile-settings-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.profile-settings-table {
+    text-align: left;
+}
+
+.profile-settings-table tr {
+    height: 30px;
+}
+
+.profile-settings-table th {
+    margin-right: 20px;
+}
+
+.profile-settings-table td {
+    width: 80%;
+}
+
+.profile-settings-title {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.update-profile-btn {
+    color: green;
+    background-color: #00800018;
+}
+
+.update-profile-btn:hover {
+    background-color: #00800028;
+}
+
+.delete-profile-btn {
+    color: red;
+    background-color: #ff000015;
+}
+
+.delete-profile-btn:hover {
+    background-color: #ff000025;
+}
+
+@media (max-width: 47em) {
+    .profile-settings-table td {
+        width: 60%;
+    }
+}

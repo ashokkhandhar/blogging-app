@@ -1,0 +1,173 @@
+@import url('../main.css');
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    z-index: 100;
+}
+
+.navigation{
+    border-bottom: 0.3px solid var(--header-footer-border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: var(--primary-background-color);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    color: var(--font-color-2);
+    height: 70px;
+    background-color: white;
+    margin-bottom: 50px;
+}
+
+.navigation.shadow {
+    box-shadow: 0px 1px 7px var(--navigation-box-shadow-color);
+}
+
+.logo{
+    height: 37px;
+}
+
+.light-logo, .dark-logo {
+    display: none;
+}
+
+.nav-list-1 {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-list-2 {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-list-1 a, .nav-list-2 a{
+    text-decoration: none;
+    transition: text-decoration 0.3s ease;
+    font-size: 15px;
+    color: var(--font-color-2);
+}
+
+.nav-list-1 a:hover, .nav-list-2 a:hover{
+    color: var(--primary-color);
+}
+
+.theme-btn {
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    border: none;
+    border-radius: 8px;
+    background-color: transparent;
+    padding: 10px;
+}
+
+.theme-btn:hover {
+    background-color: var(--secondary-background-color);
+}
+
+.dark-icon, .light-icon {
+    height: 100%;
+    width: 100%;
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+.login-btn {
+    color: #2db55d;
+    background-color: #2db55d1f;
+}
+
+.login-btn:hover {
+    background-color: #2db55d33;
+}
+
+.register-btn {
+    color: #ffa116;
+    background-color: #ffa1161f;
+}
+
+.register-btn:hover {
+    background-color: #ffa11633;
+}
+
+.create-btn {
+    color: var(--secondary-color);
+    background-color: #16869f23;
+}
+
+.create-btn:hover {
+    background-color: #16869f34;
+}
+
+/* profile dropdown */
+.dropbtn {
+    background-color: var(--primary-background-color);
+    color: #16859F;
+    font-size: 31px;
+    border: none;
+    cursor: pointer;
+}
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 300,
+    'GRAD' 0,
+    'opsz' 18
+}
+  
+.dropdown {
+    position: relative; 
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 58px;
+    right: 0;
+    background-color: var(--primary-background-color);
+    min-width: 200px;
+    overflow: auto;
+    border-radius: 10px;
+    padding: 0 10px 10px 10px;
+    box-shadow: 1px 3px #0000000a, 0px 10px 28px -4px #00000029;
+    z-index: 1;
+}
+  
+.show {
+    display: block;
+}
+
+.dropdown-username {
+    padding: 18px 12px;
+    border-bottom: 1px solid var(--header-footer-border-color);
+}
+
+.dropdown-menu {
+    margin-top: 15px;
+}
+
+.dropdown-menu a {
+    color: var(--font-color-2);
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+  
+.dropdown-menu a:hover {
+    background-color: var(--secondary-background-color);
+}

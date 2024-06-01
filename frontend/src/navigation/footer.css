@@ -1,0 +1,17 @@
+@import url('../main.css');
+
+.copy-right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 40px;
+    color: var(--font-color-2);
+    background-color: var(--primary-background-color);
+    border-top: 0.3px solid var(--header-footer-border-color);
+}
+
+.copy-right a {
+    text-decoration: underline;
+    color: var(--font-color-2);
+}

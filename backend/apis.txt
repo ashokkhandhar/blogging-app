@@ -1,0 +1,14 @@
+/auth/regiester
+/auth/login
+/auth/logout
+
+/user/profile/:username
+/user/update
+/user/delete
+
+/post/createPost
+/post/viewPost/:id
+/post/all
+/post/myPosts
+/post/editPost
+/deletePost/:postId
